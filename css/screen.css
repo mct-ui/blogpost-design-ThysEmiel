@@ -1,4 +1,25 @@
 /*
+
+    Font faces
+
+
+*/
+@font-face{
+    font-family: "Inter web";
+    font-weight: 400;
+    src: url("../fonts/Inter-Regular.woff2") format("woff2");
+}
+
+@font-face{
+    font-family: "Inter web";
+    font-weight: 700;
+    src: url("../fonts/Inter-Bold.woff2") format("woff2");
+}
+
+
+
+
+/*
     Elements: Page
     ---
     Default markup for page level elements
@@ -7,15 +28,17 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
-    color: #111;
-    padding: 48px 24px 24px;
+    font-family: "Droid-Serif", Helvetica, arial, sans-serif;
+    color: #5C6366;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    max-width: 42em;
-    margin: 0 auto;
+* ,*::before, *::after  {
+    box-sizing: inherit;
 }
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -25,7 +48,7 @@ body {
  */
 
 ::selection {
-    background: #e85e00;
+    background: #B3E8FF;
     color: white;
     text-shadow: none;
 }
@@ -47,8 +70,13 @@ img {
     Default markup for typographic elements
 */
 
+h1, h2, h3 {
+    color:#17181A;
+    font-family: "Inter web", Helvetica, arial, sans-serif;
+}
+
 h1 {
-    font-family: "Times New Roman", serif;
+    font-family: "Playfair Display", serif;
     font-size: 36px;
     font-weight: normal;
     line-height: 40px;
@@ -59,6 +87,12 @@ h2 {
     font-size: 23px;
     line-height: 32px;
     margin: 0 0 24px;
+}
+
+* + h2 {
+
+    margin-top: 24px;
+
 }
 
 h3 {
@@ -123,19 +157,150 @@ hr {
 }
 
 a {
-    color: RoyalBlue;
+    color: #00A1E6;
     transition: all .1s ease-in-out;
 }
 
 a:visited,
-a:active {
-    color: BlueViolet;
-}
-
+a:active,
 a:hover,
 a:focus {
-    color: Crimson;
+    color: #1AFFBA;
 }
+
+.u-mb-clear{
+    margin-bottom: 0;
+}
+
+/* 
+    Comp
+    quote
+
+
+*/
+
+.c-quote{
+    background: #F2FAF8;
+    font-family: "Droid-Serif";
+    padding: 24px ;
+    font-size: 24px;
+    color:#00B37D;
+    margin-bottom: 24px;
+    margin-left: -24px;
+    margin-right: -24px;
+    border-radius: 5px;
+}
+
+.c-quote__text {
+    font-style: italic;
+}
+
+
+
+/*
+
+    Component
+    author
+
+*/
+
+
+
+
+.c-author{
+    display:flex;
+    align-items: center ;
+}
+.c-author__name, .c-author__title{
+    margin-bottom: 0;
+}
+
+.c-author__avatar {
+
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    margin-right: 16px;
+}
+.c-author__name{
+    font-size: 16px;
+    line-height: 24px;
+}
+.c-author__title{
+    font-size: 14px;
+    line-height: 20px;
+    font-family: "Inter web", Helvetica, arial, sans-serif;
+}
+
+
+@media (min-width:992px){
+    .c-author {
+        display: block;
+        
+    }
+    .c-author__avatar{
+        margin-bottom: 16px;
+    }
+}
+
+/*
+
+    article
+
+*/
+
+
+.c-article__header, .c-article__body {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.c-article__header{
+    padding: 24px 24px 0;
+}
+
+.c-article__body {
+    padding: 0 24px;
+}
+@media (min-width: 992px){
+    .c-article__body{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .c-article__aside{
+        width: 25%;
+        padding-right: 24px;
+    }
+    .c-article__content{
+        width: 75%;
+    }
+}
+
+@media (min-width: 768px){
+    .c-article__header{
+        padding: 48px 48px 24px;
+    }
+
+
+    .c-article__body{
+        padding: 48px 48px 24px;
+    }
+
+    .c-article__aside {
+        margin-bottom: 48px;
+    }
+}
+
+/* 
+
+    UTILITIES
+
+*/
+
+.u-max-width-sm {
+    max-width: 36em;
+}
+
 
 /* Small devices (landscape phones, 576px and up) */
 
@@ -144,9 +309,6 @@ a:focus {
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-    html {
-        padding: 48px 48px 24px;
-    }
     h1 {
         font-size: 58px;
         line-height: 64px;
